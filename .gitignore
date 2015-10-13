@@ -21,4 +21,4 @@
 sysinfo.txt
 
 # VSCode related configuration
-.vscode
+/.vscode/
