@@ -6,6 +6,7 @@ public class PlayerController : MonoBehaviour {
 	
 	public float timeBetweenStrokes;
 	public float strokeForce;
+	public float oxygenTime;
 	private bool swimming = false;
 	private Rigidbody rbody;
 
@@ -16,7 +17,12 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
-		
+		oxygenTime -= Time.deltaTime;
+		if( oxygenTime < 0 ) {
+			// gameover
+		}
+		// update oxygen visual effect
+		// 
 	}
 	
 	void FixedUpdate() {
