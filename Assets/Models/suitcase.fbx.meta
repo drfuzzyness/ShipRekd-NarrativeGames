@@ -1,0 +1,157 @@
+fileFormatVersion: 2
+guid: 3201836ce040343d495c9cd26e129a54
+timeCreated: 1444839517
+licenseType: Free
+ModelImporter:
+  serializedVersion: 18
+  fileIDToRecycleName:
+    100000: Camera
+    100002: Cube
+    100004: Cylinder
+    100006: Cylinder.001
+    100008: Cylinder.002
+    100010: Cylinder.003
+    100012: Lamp
+    100014: //RootNode
+    100016: Torus
+    100018: Torus.001
+    100020: Torus.002
+    100022: Torus.003
+    100024: Torus.004
+    100026: Torus.005
+    100028: Torus.006
+    100030: Torus.007
+    100032: Torus.008
+    100034: Torus.009
+    100036: Torus.010
+    400000: Camera
+    400002: Cube
+    400004: Cylinder
+    400006: Cylinder.001
+    400008: Cylinder.002
+    400010: Cylinder.003
+    400012: Lamp
+    400014: //RootNode
+    400016: Torus
+    400018: Torus.001
+    400020: Torus.002
+    400022: Torus.003
+    400024: Torus.004
+    400026: Torus.005
+    400028: Torus.006
+    400030: Torus.007
+    400032: Torus.008
+    400034: Torus.009
+    400036: Torus.010
+    2300000: Cube
+    2300002: Cylinder
+    2300004: Cylinder.001
+    2300006: Cylinder.002
+    2300008: Cylinder.003
+    2300010: Torus
+    2300012: Torus.001
+    2300014: Torus.002
+    2300016: Torus.003
+    2300018: Torus.004
+    2300020: Torus.005
+    2300022: Torus.006
+    2300024: Torus.007
+    2300026: Torus.008
+    2300028: Torus.009
+    2300030: Torus.010
+    3300000: Cube
+    3300002: Cylinder
+    3300004: Cylinder.001
+    3300006: Cylinder.002
+    3300008: Cylinder.003
+    3300010: Torus
+    3300012: Torus.001
+    3300014: Torus.002
+    3300016: Torus.003
+    3300018: Torus.004
+    3300020: Torus.005
+    3300022: Torus.006
+    3300024: Torus.007
+    3300026: Torus.008
+    3300028: Torus.009
+    3300030: Torus.010
+    4300000: Cylinder
+    4300002: Torus
+    4300004: Cube
+    4300006: Cylinder.001
+    4300008: Cylinder.002
+    4300010: Cylinder.003
+    4300012: Torus.001
+    4300014: Torus.002
+    4300016: Torus.003
+    4300018: Torus.004
+    4300020: Torus.005
+    4300022: Torus.006
+    4300024: Torus.007
+    4300026: Torus.008
+    4300028: Torus.009
+    4300030: Torus.010
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    optimizeGameObjects: 0
+    motionNodeName: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: .5
+    animationPositionError: .5
+    animationScaleError: .5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    splitTangentsAcrossUV: 1
+    normalImportMode: 0
+    tangentImportMode: 1
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    human: []
+    skeleton: []
+    armTwist: .5
+    foreArmTwist: .5
+    upperLegTwist: .5
+    legTwist: .5
+    armStretch: .0500000007
+    legStretch: .0500000007
+    feetSpacing: 0
+    rootMotionBoneName: 
+    hasTranslationDoF: 0
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 0
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

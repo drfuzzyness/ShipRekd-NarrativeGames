@@ -39,7 +39,7 @@ public class PlayerController : MonoBehaviour {
 	IEnumerator SwimRoutine() {
 		while( swimming ) {
 			// swim sound here
-			GetComponent<Rigidbody>().AddForce( transform.forward * strokeForce, ForceMode.Impulse );
+			rbody.AddForce( transform.forward * strokeForce, ForceMode.Impulse );
 			//  Debug.Log( transform.forward );
 			yield return new WaitForSeconds( timeBetweenStrokes );
 		}
