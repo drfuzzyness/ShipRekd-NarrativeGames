@@ -1,6 +1,6 @@
 //Maya ASCII 2015 scene
-//Name: Ship-01-merge.ma
-//Last modified: Sun, Oct 18, 2015 04:54:53 PM
+//Name: Ship-04-ambocc.ma
+//Last modified: Sun, Oct 18, 2015 04:55:27 PM
 //Codeset: UTF-8
 requires maya "2015";
 requires -nodeType "mentalrayFramebuffer" -nodeType "mentalrayOptions" -nodeType "mentalrayGlobals"
@@ -1691,4 +1691,4 @@ connectAttr "groupId18.msg" ":initialShadingGroup.gn" -na;
 dataStructure -fmt "raw" -as "name=externalContentTable:string=node:string=key:string=upath:uint32=upathcrc:string=rpath:string=roles";
 applyMetadata -fmt "raw" -v "channel\nname externalContentTable\nstream\nname v1.0\nindexType numeric\nstructure externalContentTable\n0\n\"baked_surfaceShader1SG_pCube3_fnbake1\" \"fileTextureName\" \"/Users/matthew/Github/ShipRekD-NarrativeGames/Models/Shiprek-Matthew-MayaProj/renderData/mentalray/lightMap/baked-surfaceShader1SG-pCube3.tif\" 4187835717 \"/Users/matthew/Github/ShipRekD-NarrativeGames/Models/Shiprek-Matthew-MayaProj/renderData/mentalray/lightMap/baked-surfaceShader1SG-pCube3.tif\" \"sourceImages\"\nendStream\nendChannel\nendAssociations\n" 
 		-scn;
-// End of Ship-01-merge.ma
+// End of Ship-04-ambocc.ma
