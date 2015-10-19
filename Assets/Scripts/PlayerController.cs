@@ -7,16 +7,25 @@ public class PlayerController : MonoBehaviour {
 	public float timeBetweenStrokes;
 	public float strokeForce;
 	public float oxygenTime;
-	private bool swimming = false;
+	private bool swimming;
 	private Rigidbody rbody;
 
 	void Start () {
+		rbody = GetComponent<Rigidbody>();
+		swimming = false;
 		Cardboard.SDK.Recenter();
 		StartSwimming();
-		rbody = GetComponent<Rigidbody>();
+		
 	}
 	
 	void Update () {
+		if( Input.anyKeyDown || Cardboard.SDK.Triggered ) {
+			if( swimming ) {
+				swimming = false;
+			} else {
+				StartSwimming();
+			}
+		}
 		oxygenTime -= Time.deltaTime;
 		if( oxygenTime < 0 ) {
 			// gameover
