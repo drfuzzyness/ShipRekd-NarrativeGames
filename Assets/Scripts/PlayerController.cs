@@ -19,6 +19,13 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
+		if( Input.anyKeyDown || Cardboard.SDK.Triggered ) {
+			if( swimming ) {
+				swimming = false;
+			} else {
+				StartSwimming();
+			}
+		}
 		oxygenTime -= Time.deltaTime;
 		if( oxygenTime < 0 ) {
 			// gameover
