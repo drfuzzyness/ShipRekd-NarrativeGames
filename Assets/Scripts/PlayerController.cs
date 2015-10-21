@@ -8,11 +8,14 @@ public class PlayerController : MonoBehaviour {
 	public float strokeCountdown;
 	public float strokeForce;
 	public bool swimming;
+	public bool locked;
+	public GameObject bubbles;
 	private Rigidbody rbody;
 
 	void Start () {
 		rbody = GetComponent<Rigidbody>();
 		swimming = false;
+		locked = false;
 		Cardboard.SDK.Recenter();
 		strokeCountdown = 0;
 		StartSwimming();
@@ -20,7 +23,7 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	void Update () {
-		if( Cardboard.SDK.Triggered ) {
+		if( Cardboard.SDK.Triggered && !locked ) {
 			if( swimming ) {
 				swimming = false;
 			} else {

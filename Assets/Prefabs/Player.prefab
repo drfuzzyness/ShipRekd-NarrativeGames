@@ -381,9 +381,10 @@ AudioSource:
   m_GameObject: {fileID: 147984}
   m_Enabled: 1
   serializedVersion: 4
-  OutputAudioMixerGroup: {fileID: 0}
+  OutputAudioMixerGroup: {fileID: 24300001, guid: 0afb28019dbe64ed2ad7d50673d3aafb,
+    type: 2}
   m_audioClip: {fileID: 8300000, guid: 0da96b19916db467b9db6e03b694df91, type: 3}
-  m_PlayOnAwake: 1
+  m_PlayOnAwake: 0
   m_Volume: 1
   m_Pitch: 1
   Loop: 1
@@ -506,8 +507,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   timeBetweenStrokes: 2
+  strokeCountdown: 0
   strokeForce: 3
-  oxygenTime: 0
+  swimming: 0
+  locked: 0
+  bubbles: {fileID: 185730}
 --- !u!114 &11441986
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -774,7 +778,7 @@ ParticleSystem:
         rgba: 4294967295
       maxColor:
         serializedVersion: 2
-        rgba: 4294967295
+        rgba: 2147483647
       minMaxState: 0
     startSize:
       scalar: .0500000007

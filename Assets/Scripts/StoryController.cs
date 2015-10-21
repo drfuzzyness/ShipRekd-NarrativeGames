@@ -29,16 +29,15 @@ public class StoryController : MonoBehaviour {
 	public Color forestFogColor;
 	public float forestFogDensity;
 	
-	[HeaderAttribute("Hell")]
-	public Material hellSkybox;
-	public Terrain hellTerrain;
-	public AudioSource hellSFX;
-	public Color hellFogColor;
-	
 	[HeaderAttribute("Surface")]
 	public Material surfaceSkybox;
+	public GameObject surfaceTerrain;
 	public AudioSource surfaceSFX;
 	public Color surfaceFogColor;
+	public float surfaceFogDensity;
+	public float waitTimeOnSurface;
+	public GameObject endUI;
+	public Transform surfacePlayerPosition;
 	
 	public static StoryController instance;
 	private Rect fadeRectOverlay;
@@ -70,32 +69,65 @@ public class StoryController : MonoBehaviour {
 	
 	public void TriggerForest() {
 		state = StoryState.Forest;
-		
-		RenderSettings.skybox = forestSkybox;
-		
-		StartCoroutine( FadeInVolume( forestSFX ) );
-		StartCoroutine( FadeOutVolume( underwaterSFX ) );
-		StartCoroutine( FadeInVolume( shipSFX ) );
-		
-		StartCoroutine( FadeFog( forestFogColor, forestFogDensity ) );
-		underwaterTerrain.gameObject.SetActive(false);
-		forestTerrain.gameObject.SetActive(true);
-		StartCoroutine( ScreenFade( Color.black ) );
-	}
-	
-	public void TriggerHell() {
-		state = StoryState.Hell;
-		StartCoroutine( FadeOutVolume( shipSFX ) );
-		
-		StartCoroutine( FadeFog( hellFogColor, forestFogDensity ) );
+		StartCoroutine( ForestTransition() );
 	}
 	
 	public void TriggerSurface() {
 		state = StoryState.Surface;
+		StartCoroutine(SurfaceTransition());
+	}
+	
+	IEnumerator ForestTransition() {
 		
-		StartCoroutine( FadeFog( surfaceFogColor, forestFogDensity ) );
+		
+		
+		
+		StartCoroutine( FadeOutVolume( underwaterSFX ) );
+
+		
+		StartCoroutine( FadeFog( forestFogColor, forestFogDensity ) );
+		forestTerrain.gameObject.SetActive(true);
+		StartCoroutine( ScreenFade( Color.black ) );
+		
+		yield return new WaitForSeconds( audioDelay / 2);
+		StartCoroutine( FadeInVolume( forestSFX ) );
+		StartCoroutine( FadeInVolume( shipSFX ) );
+		RenderSettings.skybox = forestSkybox;
+		underwaterTerrain.gameObject.SetActive(false);
+		forestTerrain.gameObject.SetActive(true);
+	}
+	
+	IEnumerator SurfaceTransition() {
+		iTween.CameraFadeAdd( iTween.CameraTexture( Color.black ) );
+		iTween.CameraFadeTo( 1f, audioDelay/2 );
+		StartCoroutine( FadeOutVolume( underwaterSFX ) );
+		
+		player.swimming = false;
+		player.locked = true;
+		
+		StartCoroutine( FadeOutVolume(forestSFX) );
+		StartCoroutine( FadeOutVolume(shipSFX) );
+		
+		StartCoroutine( FadeFog( surfaceFogColor, surfaceFogDensity ) );
+		player.bubbles.SetActive(false);
+		
+		yield return new WaitForSeconds( audioDelay/2 );
+		surfaceTerrain.SetActive(true);
+		
+		player.transform.position = surfacePlayerPosition.position;
+		RenderSettings.skybox = surfaceSkybox;
+		iTween.CameraFadeTo( 0f, audioDelay );
+		StartCoroutine( FadeInVolume(surfaceSFX) );
+		
+		yield return new WaitForSeconds( waitTimeOnSurface + audioDelay );
+		
+		//  StartCoroutine( FadeOutVolume(surfaceSFX) );
+		iTween.CameraFadeTo( 1f, audioDelay/2 );
+		yield return new WaitForSeconds( audioDelay / 2);
+		// show ending screen
 		
 	}
+
 	
 	IEnumerator FadeOutVolume( AudioSource audio ) {
 		float increment = audio.volume / audioDelay;
@@ -133,11 +165,6 @@ public class StoryController : MonoBehaviour {
 		}
 		RenderSettings.fogColor = targetColor;
 		RenderSettings.fogDensity = targetDensity;
-	}
-	
-	
-	void OnGUI() {
-		
 	}
 	
 }

@@ -11,7 +11,7 @@ public class StoryTrigger : MonoBehaviour {
 				StoryController.instance.TriggerForest();
 				break;
 			case StoryState.Hell:
-				StoryController.instance.TriggerHell();
+				//  StoryController.instance.TriggerHell();
 				break;
 			case StoryState.Underwater:
 				StoryController.instance.TriggerUnderwater();
