@@ -5,30 +5,27 @@ using System.Collections;
 public class PlayerController : MonoBehaviour {
 	
 	public float timeBetweenStrokes;
+	public float strokeCountdown;
 	public float strokeForce;
-	public float oxygenTime;
-	private bool swimming;
+	public bool swimming;
 	private Rigidbody rbody;
 
 	void Start () {
 		rbody = GetComponent<Rigidbody>();
 		swimming = false;
 		Cardboard.SDK.Recenter();
+		strokeCountdown = 0;
 		StartSwimming();
 		
 	}
 	
 	void Update () {
-		if( Input.anyKeyDown || Cardboard.SDK.Triggered ) {
+		if( Cardboard.SDK.Triggered ) {
 			if( swimming ) {
 				swimming = false;
 			} else {
 				StartSwimming();
 			}
-		}
-		oxygenTime -= Time.deltaTime;
-		if( oxygenTime < 0 ) {
-			// gameover
 		}
 		// update oxygen visual effect
 		// 
@@ -46,11 +43,19 @@ public class PlayerController : MonoBehaviour {
 	}
 	
 	IEnumerator SwimRoutine() {
+		while( strokeCountdown > 0 ) {
+			strokeCountdown -= Time.deltaTime;
+			yield return 0;
+		}
 		while( swimming ) {
 			// swim sound here
 			rbody.AddForce( transform.forward * strokeForce, ForceMode.Impulse );
 			//  Debug.Log( transform.forward );
-			yield return new WaitForSeconds( timeBetweenStrokes );
+			strokeCountdown = timeBetweenStrokes;
+			while( strokeCountdown > 0 ) {
+				strokeCountdown -= Time.deltaTime;
+				yield return 0;
+			}
 		}
 	}
 }
